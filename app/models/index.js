@@ -90,14 +90,6 @@ db.api_transfer=require("./transfer/app_transfer")(sequelize, Sequelize);
 db.api_transfer_reason=require("./transfer/app_transfer_reason")(sequelize, Sequelize);
 db.api_job_list=require("./job_list/api_job_list")(sequelize, Sequelize);
 db.api_leave=require("./leave/app_leave")(sequelize, Sequelize);
-<<<<<<< HEAD
-//====================================================
-// START OF MODULE/MODULE_PERMISSION/ROLE RELATION
-//====================================================
-
-db.dependant_details.hasMany(db.dependant_attachment, {
-    foreignKey: "dependant_id",
-=======
 db.areas=require("./areas/areas")(sequelize, Sequelize);
 //====================================================
 // START OF MODULE/MODULE_PERMISSION/ROLE RELATION
@@ -111,17 +103,10 @@ db.users.hasMany(db.areas, {
 db.areas.belongsTo(db.users, {
     through: db.users,
     foreignKey: "employee_id",
->>>>>>> michael-backend
     onDelete: "CASCADE",
     onUpdate: "CASCADE",
 });
 
-db.dependant_attachment.belongsTo(db.dependant_details, {
-    through: db.dependant_details,
-    foreignKey: "dependant_id",
-    onDelete: "CASCADE",
-    onUpdate: "CASCADE",
-});
 
 db.users.hasMany(db.areas, {
     foreignKey: "completed_by_id",
@@ -129,8 +114,6 @@ db.users.hasMany(db.areas, {
     onUpdate: "CASCADE",
 });
 
-<<<<<<< HEAD
-=======
 db.areas.belongsTo(db.users, {
     through: db.users,
     foreignKey: "completed_by_id",
@@ -155,7 +138,6 @@ db.dependant_attachment.belongsTo(db.dependant_details, {
 });
 
 
->>>>>>> michael-backend
 db.dependant_type.hasMany(db.next_of_kin, {
     foreignKey: "relation_id",
     onDelete: "CASCADE",
@@ -292,26 +274,15 @@ db.designation_history.belongsTo(db.api_designation, {
 });
 
 
-<<<<<<< HEAD
-db.users.hasMany(db.designation_history, {
-    foreignKey: "employee_id",
-=======
 db.api_staff_profile.hasMany(db.designation_history, {
     foreignKey: "staff_profile_id",
->>>>>>> michael-backend
     onDelete: "CASCADE",
     onUpdate: "CASCADE",
 });
 
-<<<<<<< HEAD
-db.designation_history.belongsTo(db.users, {
-    through: db.users,
-    foreignKey: "employee_id",
-=======
 db.designation_history.belongsTo(db.api_staff_profile, {
     through: db.api_staff_profile,
     foreignKey: "staff_profile_id",
->>>>>>> michael-backend
     onDelete: "CASCADE",
     onUpdate: "CASCADE",
 });
@@ -751,7 +722,6 @@ db.role_user.belongsTo(db.users, {
     foreignKey: "user_id",
     onDelete: "CASCADE",
     onUpdate: "CASCADE",
-<<<<<<< HEAD
 });
 
 db.dependant_type.hasMany(db.attachment_dependant_type, {
@@ -781,37 +751,6 @@ db.attachment_dependant_type.belongsTo(db.attachment, {
     onUpdate: "CASCADE",
 });
 
-=======
-});
-
-db.dependant_type.hasMany(db.attachment_dependant_type, {
-    foreignKey: "dependant_type_id",
-    onDelete: "CASCADE",
-    onUpdate: "CASCADE",
-});
-
-
-db.attachment_dependant_type.belongsTo(db.dependant_type, {
-    through: db.dependant_type,
-    foreignKey: "dependant_type_id",
-    onDelete: "CASCADE",
-    onUpdate: "CASCADE",
-});
-
-db.attachment.hasMany(db.attachment_dependant_type, {
-    foreignKey: "attachment_id",
-    onDelete: "CASCADE",
-    onUpdate: "CASCADE",
-});
-
-db.attachment_dependant_type.belongsTo(db.attachment, {
-    through: db.attachment,
-    foreignKey: "attachment_id",
-    onDelete: "CASCADE",
-    onUpdate: "CASCADE",
-});
-
->>>>>>> michael-backend
 
 
 

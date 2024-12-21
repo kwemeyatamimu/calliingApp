@@ -30,13 +30,10 @@ module.exports = (sequelize, Sequelize) => {
             type:Sequelize.TEXT,
             allowNull:true
         },
-<<<<<<< HEAD
-=======
         designation_status:{
             type:Sequelize.STRING,
             allowNull:false
         },
->>>>>>> michael-backend
         status:{
             type:Sequelize.STRING,
             allowNull:false
